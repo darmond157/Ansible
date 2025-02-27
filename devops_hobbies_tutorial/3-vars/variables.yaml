@@ -1,0 +1,18 @@
+---
+
+- name: intro to vars
+  hosts: localhost
+  vars:
+    favcolor: red
+  vars_files:
+    - ./first-var.yaml
+    #- ./second-var.yaml
+    #...
+  tasks:
+    - name: show the magical var
+      debug:
+        msg: "this is my fav color: {{ favcolor }}"
+    
+    - name: show the magical var from file
+      debug:
+        var: favteams

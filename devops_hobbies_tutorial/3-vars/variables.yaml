@@ -4,6 +4,11 @@
   hosts: localhost
   vars:
     favcolor: red
+
+    servers:
+      iran: arvan
+      Foreign: cloudflare
+
   vars_files:
     - ./first-var.yaml
     #- ./second-var.yaml
@@ -15,4 +20,8 @@
     
     - name: show the magical var from file
       debug:
-        var: favteams
+        var: favteams.Iran #we can use "." for objects and "[]" for arrays, to access elements.
+
+    - name: mix 2 dictionaries
+      debug:
+        msg: "these are my favorites: {{ favteams | combine(servers) }}"

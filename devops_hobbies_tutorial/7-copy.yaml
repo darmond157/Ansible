@@ -1,0 +1,12 @@
+---
+
+- name: intro to sync and copy
+  hosts: localhost
+  vars:
+    home_dir: "{{playbook_dir}}"
+    target_dir: "/home/darmond"
+  tasks:
+    - name: copy a directory
+      copy:
+        src: "{{home_dir}}"
+        dest: "{{target_dir}}"
